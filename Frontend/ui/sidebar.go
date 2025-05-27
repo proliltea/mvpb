@@ -3,32 +3,33 @@ package ui
 import (
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/container"
+	"fyne.io/fyne/v2/layout"
 	"fyne.io/fyne/v2/widget"
 )
 
 func BuildSidebar(content *fyne.Container) *fyne.Container {
-	sidebar := container.NewVBox(
-		widget.NewLabel("Разделы"),
+	return container.NewVBox(
+		widget.NewLabel("Модули"),
 		widget.NewButton("Учебная деятельность", func() {
-			content.Objects = []fyne.CanvasObject{BuildUchebna()}
+			content.Objects = []fyne.CanvasObject{BuildEducationView()}
 			content.Refresh()
 		}),
 		widget.NewButton("Учебно-методическая", func() {
-			content.Objects = []fyne.CanvasObject{BuildMetodichka()}
+			content.Objects = []fyne.CanvasObject{widget.NewLabel("Методическая часть — без API")}
 			content.Refresh()
 		}),
 		widget.NewButton("Научная деятельность", func() {
-			content.Objects = []fyne.CanvasObject{BuildNauka()}
+			content.Objects = []fyne.CanvasObject{widget.NewLabel("Кнопка участия в конференции")}
 			content.Refresh()
 		}),
 		widget.NewButton("ГИА", func() {
-			content.Objects = []fyne.CanvasObject{BuildGIA()}
+			content.Objects = []fyne.CanvasObject{widget.NewLabel("Регистрация темы диплома")}
 			content.Refresh()
 		}),
-		widget.NewButton("Пользователи и доступ", func() {
-			content.Objects = []fyne.CanvasObject{BuildUsers()}
+		widget.NewButton("Пользователи", func() {
+			content.Objects = []fyne.CanvasObject{widget.NewLabel("Управление ролями")}
 			content.Refresh()
 		}),
+		layout.NewSpacer(),
 	)
-	return sidebar
 }

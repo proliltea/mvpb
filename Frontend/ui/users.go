@@ -6,11 +6,13 @@ import (
 	"fyne.io/fyne/v2/widget"
 )
 
-func BuildUsers() *fyne.Container {
+func BuildUsersView() fyne.CanvasObject {
 	return container.NewVBox(
-		widget.NewLabel("Управление пользователями"),
-		widget.NewButton("Администратор — полный доступ", func() {}),
-		widget.NewButton("Преподаватель — доступ к своим данным", func() {}),
-		widget.NewButton("Зав. кафедрой — анализ всех данных", func() {}),
+		widget.NewLabel("Управление пользователями и доступом"),
+		widget.NewLabel("Роли:"),
+		widget.NewLabel(" - Администратор — полный доступ"),
+		widget.NewLabel(" - Преподаватель — доступ к своим данным"),
+		widget.NewLabel(" - Заведующий кафедрой — просмотр и анализ всех данных"),
+		widget.NewLabel("Разграничение прав имитируется"),
 	)
 }
